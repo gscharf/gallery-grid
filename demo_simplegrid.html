@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+    <link rel="stylesheet"  href='stylesheets/demo.css' /> 
+    <link rel="stylesheet"  href='stylesheets/gallery.css' />
+    <link rel="stylesheet" href='stylesheets/simple-grid.css' />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>    
+
+    <script src="javascript/gallery.js"></script>    
+</head>
+<body>
+    <div class="jumbotron">
+      <div class="wrap">
+        <h1>Responsive Image Gallery</h1>
+        <p>JQuery plugin to display a grid of images along with secondary thumbnail images displayed in a FancyBox.  Numerous settings such as images per row (3, 4 or 6), images per page, two types of pagination (on scroll and via page buttons), captions can be displayed staticly under each image or in an overlay on hover, container can be set for any image dimension (using images of the same or similar dimension recommended), images can be fit to their containers or auto-cropped from the bottom up.</p>
+        <!-- <p><a role="button" class="btn btn-primary btn-lg">Learn more »</a></p> -->
+      </div>
+    </div> 
+
+
+    <div class='wrap'>
+        <div class="portfolio_page ">     
+        </div>
+    </div>
+
+<script>
+(function ($) {       
+    $(document).ready(function(){
+        $('.portfolio_page').createPortfolio({
+              imagesPerRow: 4,
+              fitImagestoContainers: false,
+             captionType: 'popup', /*options are 'popup' and 'static'*/
+              imagesPerPage: 8,
+              paginationPosition: 'bottom', /*options are 'scroll' (loads more images when scrolling to bottom of window), 'top', 'bottom' and 'both'*/
+              imageWidth: 900,
+              imageHeight: 1000,
+//              enablePopupInfo: true,           
+              portfolioItems: [
+                  {
+                      imageLink: "http://gregscharf.com/zp_Summer_Skin/albums/Bands/accord.jpg",
+                      secondaryImages: [],
+                      itemText: "This is a caption"
+                  },
+                  {
+                      imageLink: "http://gregscharf.com/zp_Summer_Skin/albums/Bands/bass.jpg", 
+                      secondaryImages: [],
+                      itemText: "This is some text that is a stand in for a caption"
+                  },
+                  // {
+                  //     imageLink: "http://gregscharf.com/zp_Summer_Skin/albums/Bands/glassjaw.jpg", 
+                  //     secondaryImages: [],
+                  //     itemText: "More caption text"
+                  // },
+                  // {
+                  //     imageLink: "http://gregscharf.com/zp_Summer_Skin/albums/Bands/glassjaw4.jpg", 
+                  //     secondaryImages: [],
+                  //     itemText: "More caption text"
+                  // },
+                  {
+                      imageLink: "http://gregscharf.com/zp_Summer_Skin/albums/Bands/darylpalumbo.jpg", 
+                      secondaryImages: [],
+                      itemText: "More caption text"
+                  },
+                  {
+                      imageLink: "http://gregscharf.com/zp_Summer_Skin/albums/Bands/laura3dif.jpg", 
+                      secondaryImages: [],
+                      itemText: "More caption text"
+                  },
+                  {
+                      imageLink: "http://gregscharf.com/zp_Summer_Skin/albums/Bands/stvincent2.jpg", 
+                      secondaryImages: [],
+                      itemText: "More caption text"
+                  },
+
+                  {
+                      imageLink: "http://gregscharf.com/zp_Summer_Skin/albums/Bands/stvincent4.jpg", 
+                      secondaryImages: [],
+                      itemText: "More caption text"
+                  },
+                  
+                  
+         ]
+        });
+        $("a.fancybox").fancybox({
+                prevEffect  : 'none',
+                nextEffect  : 'none',
+                autoWidth: true,
+                closeBtn: false,
+                helpers : {
+                    buttons: {},
+                    thumbs : {
+                     position: 'bottom',
+                     width : 50,
+                     height : 50
+                    }                
+                },
+                margin: 15,
+                padding: 0,
+                autoScale: false
+        });    
+    });    
+})(jQuery);
+</script>
+<link href="http://googledrive.com/host/0B51UCH0yGk6FdHVCMjV2Rnk3Tlk/fancy_box.css" media="screen" rel="stylesheet" type="text/css">
+<script src="http://googledrive.com/host/0B51UCH0yGk6Femw0VU5MTlo3QzQ/jquery.fancybox.pack.js" type="text/javascript"></script>  
+<script src="http://googledrive.com/host/0B51UCH0yGk6Femw0VU5MTlo3QzQ/helpers/jquery.fancybox-buttons.js" type="text/javascript"></script>
+<script src="http://googledrive.com/host/0B51UCH0yGk6Femw0VU5MTlo3QzQ/helpers/jquery.fancybox-thumbs.js" type="text/javascript"></script>
+
+</body>   
+</body>
+</html>

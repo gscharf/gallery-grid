@@ -1,6 +1,5 @@
 (function ($) {
-    
-    $.fn.createPortfolio = function(options){
+      $.fn.createPortfolio = function(options){
         var defaults = {
           captionType               : 'popup',
           imagesPerPage             : options.portfolioItems.length,
@@ -21,13 +20,23 @@
         if((totalNumImages % settings.imagesPerPage) !== 0)
             numPages++;
         var currentPage = 0;
-                
-        if(settings.imagesPerRow === 3) {
-            containerClass = "<div class='content_container col-xs-6 col-sm-4 col-md-4 col-lg-4'>";
-        } else {
-            containerClass = "<div class='content_container col-xs-6 col-sm-3 col-md-3 col-lg-3'>"; 
-        }       
-        
+               
+        if(false) {        
+            if(settings.imagesPerRow === 3) {
+                containerClass = "<div class='content_container col-xs-6 col-sm-4 col-md-4 col-lg-4'>";
+            } else {
+                containerClass = "<div class='content_container col-xs-6 col-sm-3 col-md-3 col-lg-3'>"; 
+            }  
+        }     
+        else {
+            if(settings.imagesPerRow === 3) {
+                containerClass = "<div class='content_container col-xs-1 col-lg-1-3'>";
+            } else if (settings.imagePerRow === 4) {
+                containerClass = "<div class='content_container col-xs-1 col-sm-1-2 col-md-1-4 col-lg-1-4'>"; 
+            }  else {
+                containerClass = "<div class='content_container col-xs-1 col-sm-1-2 col-md-1-4 col-lg-1-5'>"; 
+            }
+        }
         containerClass += "<a class='fancybox' rel='' href=''><div class='image_container_large loading'>";
 
         if(settings.captionType === 'popup') {   
@@ -51,7 +60,7 @@
         function createSkeleton(){
             if(settings.paginationPosition !== 'scroll')
                 $('.portfolio_page').empty();
-            
+             
             var startingImage = currentPage * settings.imagesPerPage;
             var lastImage = (settings.imagesPerPage + startingImage) < totalNumImages ? startingImage + settings.imagesPerPage : totalNumImages;             
             for(var i = startingImage; i < lastImage; i++){
@@ -99,8 +108,7 @@
                         $('.gallery_pagination').append("<div class='page_button' id='" + k + "'>" + (k + 1) + "</div>");
                     } 
                 }
-            }
-            
+            }            
             $('.page_button').click(function(){
                 currentPage = $(this).attr('id');
                 $('.page_button').removeClass('selected');

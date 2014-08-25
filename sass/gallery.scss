@@ -3,13 +3,21 @@
 ********************/
 $caption_height: 100px;
 $space_between_images: 5px;
-$space_between_rows: 10px;
+$space_between_rows: 15px;
+$tablet: 700px;
+$phone: 390px;
 
 $image_title_size: 16px;
 $image_title_weight: normal; //options are 'bold' and 'normal'
 $image_title_letter_spacing: 2px;
 $image_title_font_style: none; //options are 'uppercase', 'lowercase' and 'none'
-$rollover_color: dark;
+$rollover_color: white;
+
+@mixin respond-to ($val, $query) {
+  @media only screen and ($val: $query) {
+    @content
+  }
+}
 
 .content_container {
   display: block;
@@ -18,6 +26,11 @@ $rollover_color: dark;
   padding: 0;
   position: relative;
   margin: 0 0 $space_between_rows;
+
+  @include respond-to(max-width, $phone) {
+          float: none;
+          min-width: 285px;
+  }
 }
 .loading { 
     background: url(http://googledrive.com/host/0B51UCH0yGk6Femw0VU5MTlo3QzQ/loading18.gif) no-repeat;
@@ -85,12 +98,7 @@ $rollover_color: dark;
    -webkit-transition: opacity .50s ease-in-out; 
 }
 
-@media only screen and (max-width: 390px) {
-    .content_container {
-        float: none;
-        min-width: 285px;
-    }   
-}
+
 /* -------------------------------------------------------------- 
   -=PAGINATION
 -------------------------------------------------------------- */  
@@ -99,32 +107,28 @@ $rollover_color: dark;
     width: 100%;
     text-align: center;
     margin: 10px 0;
-}
-.gallery_pagination .page_button {
-    display: inline-block;
-    border: 1px solid #999;
-    padding: 10px;
-    margin: 0 5px;
-}
-.page_button.selected {
-    color: #fff;
-    background: #999;
-}
-.page_button:hover {
-    cursor: pointer;
+
+    .page_button {
+        display: inline-block;
+        border: 1px solid #999;
+        padding: 10px;
+        margin: 0 5px;
+
+        &.selected {
+            color: #fff;
+            background: #999;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 /* -------------------------------------------------------------- 
   -=PRODUCTS POPUP INFO
 -------------------------------------------------------------- */  
-
-
 .popup_info {  
-  @if $rollover_color == light {
-    background: rgba(255, 255, 255, 0.6);
-  }
-  @else {
-    background: rgba(0, 0, 0, 0.6);
-  }
+  background: rgba($rollover_color, 0.6);
+
   display: none;
   bottom: 0;
   left: 0;
@@ -136,7 +140,12 @@ $rollover_color: dark;
   width: 100%;
   z-index: 999;
   height: 100%;
-  
+
+  @include respond-to(max-width, $tablet) {
+      display: inline-block;
+      color: invert($rollover_color);
+      background: rgba($rollover_color, 0.4);
+  }  
 }
 .popup_text {
   bottom: 0;
@@ -149,12 +158,7 @@ $rollover_color: dark;
   padding: 0 20px;
 }
 .popup_caption {
-  @if $rollover_color == 'light' {
-    color: #000;
-  }
-  @else {
-    color: #FFF;
-  }
+    color: invert($rollover_color);
     margin: 0;
     font-size: $image_title_size;
     font-weight: $image_title_weight;
@@ -165,25 +169,7 @@ $rollover_color: dark;
 .popup_underscore {
     margin: 10px auto;
     width: 25px;
-    @if $rollover_color == light {
-      border-color: rgba(0, 0, 0, 0.9);
-    }
-    @else {
-      border-color: rgba(255, 255, 255, 0.9);
-    }
+    border-color: rgba($rollover_color, 0.9);
+
 }
 
-@media only screen and (max-width: 610px) {
-  .popup_info {  
-    display: inline-block;
-    @if $rollover_color == light {
-      color: #000;
-      background: rgba(255, 255, 255, 0.4);
-    }
-    @else {
-      color: #FFF;
-      background: rgba(0, 0, 0, 0.4);
-    }  
-  
-  }
-}  

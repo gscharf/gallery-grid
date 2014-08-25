@@ -13,6 +13,8 @@ Features:
 
 Tasks:
 - [ ] Make plugin grid agnostic.
+- [ ] Add Masonry grid setting
+- [ ] Cropping needs to occur on panoramic pictures as well when fitImagestoContainers is set to false to maintain container 	   fill.
 
 
 ```

@@ -3,8 +3,8 @@
 <head>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet"  href='demo.css' />
     <link rel="stylesheet"  href='stylesheets/gallery.css' />
+    <link rel="stylesheet" href='stylesheets/simple-grid.css' />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>    
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -17,7 +17,7 @@
         <p>JQuery plugin to display a grid of images along with secondary thumbnail images displayed in a FancyBox.  Numerous settings such as images per row (3, 4 or 6), images per page, two types of pagination (on scroll and via page buttons), captions can be displayed staticly under each image or in an overlay on hover, container can be set for any image dimension (using images of the same or similar dimension recommended), images can be fit to their containers or auto-cropped from the bottom up.</p>
         <!-- <p><a role="button" class="btn btn-primary btn-lg">Learn more »</a></p> -->
       </div>
-    </div>
+    </div> 
 
 
     <div class='container'>
@@ -33,8 +33,8 @@
               fitImagestoContainers: false,
              captionType: 'popup', /*options are 'popup' and 'static'*/
               imagesPerPage: 8,
-              paginationPosition: 'scroll', /*options are 'scroll' (loads more images when scrolling to bottom of window), 'top', 'bottom' and 'both'*/
-              imageWidth: 1000,
+              paginationPosition: 'bottom', /*options are 'scroll' (loads more images when scrolling to bottom of window), 'top', 'bottom' and 'both'*/
+              imageWidth: 800,
               imageHeight: 1000,
 //              enablePopupInfo: true,           
               portfolioItems: [
@@ -148,9 +148,9 @@
                 prevEffect  : 'none',
                 nextEffect  : 'none',
                 autoWidth: true,
-                closeBtn: true,
+                closeBtn: false,
                 helpers : {
-                    button: {},
+                    buttons: {},
                     thumbs : {
                      position: 'bottom',
                      width : 50,
